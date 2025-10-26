@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Happy Birthday, Garima! 🎉</title>
+<style>
+  body {
+    margin: 0;
+    font-family: 'Georgia', serif;
+    color: #fff;
+    background: linear-gradient(135deg, #1f2c45, #4a148c, #f8bbd0);
+    background-size: 400% 400%;
+    animation: gradientShift 15s ease infinite;
+  }
+  @keyframes gradientShift {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+  }
+  h1, h2 {
+    font-family: 'Times New Roman', serif;
+    color: #FFD700;
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+  }
+  main { padding: 20px; max-width: 900px; margin: 0 auto; }
+  section {
+    padding: 50px 20px;
+    margin-bottom: 40px;
+    background-color: rgba(0,0,0,0.3);
+    border-radius: 15px;
+    backdrop-filter: blur(5px);
+    box-shadow: 0 8px 16px rgba(0,0,0,0.4);
+  }
+  .hero-section { text-align: center; padding: 100px 20px; background: rgba(0,0,0,0.4); }
+  .music-toggle {
+    background: #FFD700;
+    color: #1f2c45;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 20px;
+    cursor: pointer;
+    font-weight: bold;
+    margin-top: 15px;
+    transition: background 0.3s, transform 0.3s;
+  }
+  .music-toggle:hover { background: #e0ac00; transform: scale(1.05); }
+  .gallery-grid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: center;
+  }
+  .gallery-item {
+    background: rgba(255,255,255,0.1);
+    padding: 10px;
+    border-radius: 10px;
+    text-align: center;
+  }
+  .gallery-item img {
+    width: 200px;
+    height: 200px;
+    object-fit: cover;
+    border-radius: 8px;
+    border: 3px solid #FFD700;
+  }
+  .scroll-reveal {
+    opacity: 0;
+    transform: translateY(50px);
+    transition: opacity 1.2s ease-out, transform 1.2s ease-out;
+  }
+  .scroll-reveal.active {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  footer {
+    text-align: center;
+    padding: 20px;
+    background: rgba(0,0,0,0.5);
+    font-size: 0.9em;
+  }
+</style>
+</head>
+<body>
+<header class="hero-section">
+  <h1>Happy Birthday, Garima!</h1>
+  <p>A little magic for your special day.</p>
+  <div class="music-player">
+    <audio id="bday-music" src="your_bday_song.mp3" loop></audio>
+    <button id="music-toggle" class="music-toggle">Play Music 🎵</button>
+  </div>
+</header>
+<main>
+  <section class="message-section scroll-reveal">
+    <h2>A Note Just For You</h2>
+    <p>
+      Happy Birthday, Garima!!
+            I hope this special day brings you dher saari khushiyan and unforgettable moments. You are one of the most positive and sweet gurl I know , aur tumhari dosti mere liye bahut special hai...May your coming year be filled with success, good health, and khoob saara pyaar. Always remember to hamesha aise hi muskurati raho...May you achieve all the goals that you've set for yourself, both big and small...Tum hamesha khush raho aur aage badhti raho. Wishing you a day as fantastic as you are. Enjoy your celebration to the fullest. Once again, a very happiest birthday, Chasmish!! ❤️🎀
+    </p>
+  </section>
+  <section class="gallery-section scroll-reveal">
+    <h2>Happiest Birthday </h2>
+    <div class="gallery-grid">
+      <div class="gallery-item"><img src="pic1.jpg" alt="A fun memory 1"></div>
+      <div class="gallery-item"><img src="pic2.jpg" alt="A fun memory 2"></div>
+      <div class="gallery-item"><img src="pic3.jpg" alt="A fun memory 3"></div>
+    </div>
+  </section>
+  <section class="wish-section scroll-reveal">
+    <h2>Keep Shining Bright</h2>
+    <p>May your year be filled with all the joy and success you deserve.And always make sure to take care of yourself 
+✨</p>
+  </section>
+</main>
+<footer>
+  <p>&copy; Built for the most prettiest girl in the whole cosmos.</p>
+</footer>
+<script>
+  const music = document.getElementById('bday-music');
+  const musicToggle = document.getElementById('music-toggle');
+  let isPlaying = false;
+  musicToggle.addEventListener('click', () => {
+    if (isPlaying) {
+      music.pause();
+      musicToggle.textContent = 'Play Music 🎵';
+    } else {
+      music.play().catch(error => {
+        console.error("Autoplay prevented:", error);
+        alert("Browser might be blocking autoplay. Please click 'Play Music' again if it doesn't start.");
+      });
+      musicToggle.textContent = 'Pause Music ⏸️';
+    }
+    isPlaying = !isPlaying;
+  });
+  const revealElements = document.querySelectorAll('.scroll-reveal');
+  function isElementInViewport(el) {
+    const rect = el.getBoundingClientRect();
+    return rect.top < (window.innerHeight || document.documentElement.clientHeight) && rect.bottom > 0;
+  }
+  function handleScrollReveal() {
+    revealElements.forEach(el => {
+      if (isElementInViewport(el)) el.classList.add('active');
+      else el.classList.remove('active');
+    });
+  }
+  window.addEventListener('scroll', handleScrollReveal);
+  handleScrollReveal();
+</script>
+</body>
+</html>
